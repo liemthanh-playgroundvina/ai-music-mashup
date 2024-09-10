@@ -1,0 +1,28 @@
+########################################################################
+# # BASE FOR FASTAPI
+fastapi==0.95.2
+uvicorn[standard]==0.21.1
+pydantic==1.*
+########################################################################
+# # BASE FOR WORKER
+python-dotenv
+celery==5.3.1
+flower==1.0.0
+redis==3.5.3
+Cython==0.29.21
+pydub==0.25.1
+gevent
+eventlet
+boto3==1.26.148
+########################################################################
+# # AI MASHUP MUSIC
+git+https://github.com/CPJKU/madmom
+allin1
+openai
+tiktoken
+pydub
+librosa
+soundfile
+essentia
+yodel
+pyrubberband

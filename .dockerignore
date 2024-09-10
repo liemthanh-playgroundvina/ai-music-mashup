@@ -1,0 +1,15 @@
+pycrossfade_annotations
+models
+
+*.jpg
+*.png
+*.mp3
+*.wav
+*.mp4
+*.avi
+*.pth
+*.dat
+*.onnx
+*.ckpt
+*.safetensors
+*venv*
