@@ -32,7 +32,7 @@ COPY requirements.txt .
 RUN python3 -m pip install --upgrade pip
 RUN pip install --no-cache-dir ninja
 RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-RUN pip3 install natten==0.17.1+torch230cu121 -f https://shi-labs.com/natten/wheels/
+RUN pip3 install natten==0.17.1+torch240cu118 -f https://shi-labs.com/natten/wheels
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip uninstall -y pysoundfile soundfile
 RUN pip install soundfile
