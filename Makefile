@@ -1,5 +1,5 @@
 download_model:
-	git clone https://huggingface.co/taejunkim/allinone ./models
+	git clone https://huggingface.co/taejunkim/allinone ./models/allinone
 
 config:
 	mkdir -p logs && touch logs/celery.log
