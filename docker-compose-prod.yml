@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  worker-ai-mashup-music:
+    image: ai-mashup-music
+    container_name: worker-ai-mashup-music
+    volumes:
+    - .:/app
+    - ./models:/root/.cache/torch/hub/checkpoints
+    - ./models:/models
+    - ./models/loaders.py:/usr/local/lib/python3.9/site-packages/allin1/models/loaders.py
+    - ai_cover-data:/app/static/public/ai_cover_gen
+    command: bash -c "celery -A ai_celery.router worker -Q ai_mashup_music --loglevel=info --pool=eventlet --concurrency=1 -E --logfile=logs/celery.log --hostname=celery@ai_mashup_music && tail -f /dev/null" &
+    restart: always
+    networks:
+      - aiservice-net-v2
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+
+volumes:
+  "ai_cover-data":
+    external: true
+
+networks:
+  aiservice-net-v2:
+    external: true
